@@ -63,9 +63,9 @@ unsigned char find_median(unsigned char arr[], int n);
  * @param char arr[] char in a array
  * @param int size of array
  * 
- * @return double - the mean average
+ * @return char - the mean average
  */
-double find_mean(unsigned char arr[], int n);
+unsigned char find_mean(unsigned char arr[], int n);
 
 /**
  * @brief Finds the maximum of an array

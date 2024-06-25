@@ -22,6 +22,7 @@
 
 
 #include <stdio.h>
+#include <math.h>
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -37,6 +38,12 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  printf("Original Data Array:\n");
+  print_array(test, SIZE);
+  print_statistics(test, SIZE);
+  sort_array(test, SIZE);
+  printf("Sorted Data Array:\n");
+  print_array(test, SIZE);
 
 }
 
@@ -84,12 +91,12 @@ unsigned char find_median(unsigned char arr[], int n) {
 
 
 // Function to calculate mean
-double find_mean(unsigned char arr[], int n) {
+unsigned char find_mean(unsigned char arr[], int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
         sum += arr[i];
     }
-    return sum / n;
+    return (int)round(sum / n);
 }
 
 // Function to find maximum value
