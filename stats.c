@@ -9,13 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c 
+ * @brief Week 1 coding assesment 
  *
- * <Add Extended Description Here>
+ * Embedded systems introduction. This part is an introduction to C language
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Jeremy Turner
+ * @date 24/06/2024
  *
  */
 
@@ -41,3 +41,90 @@ void main() {
 }
 
 /* Add other Implementation File Code Here */
+
+
+// Prints statistics
+void print_statistics(unsigned char arr[], int n){
+
+  //print min
+  printf("Min: %d \n", find_minimum(arr, n));
+
+  //print max
+  printf("Max: %d \n", find_maximum(arr, n));
+
+  //print mean
+  printf("Mean: %d \n", find_mean(arr, n));
+
+  //print medium
+  printf("Medium: %d \n", find_median(arr, n));
+
+}
+
+
+// Prints array
+void print_array(unsigned char arr[], int n){
+  // Print the sorted array
+    for (int i = 0; i < n-1; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+
+// Function to calculate median
+unsigned char find_median(unsigned char arr[], int n) {
+    
+    // Return the middle value
+    if (n % 2 != 0) {
+        return arr[n/2];
+    } else {
+        return (arr[(n-1)/2] + arr[n/2]) / 2; // For even number of elements, take average of two middle numbers
+    }
+}
+
+
+// Function to calculate mean
+double find_mean(unsigned char arr[], int n) {
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    return sum / n;
+}
+
+// Function to find maximum value
+unsigned char find_maximum(unsigned char arr[], int n) {
+    unsigned char max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+// Function to find minimum value
+unsigned char find_minimum(unsigned char arr[], int n) {
+    unsigned char max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+
+// Function to perform Bubble Sort
+void sort_array(unsigned char arr[], int n) {
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                // Swap arr[j] and arr[j+1]
+                unsigned char temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
